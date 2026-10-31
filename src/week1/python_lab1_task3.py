@@ -29,15 +29,19 @@ Examples (these are also used to check your work):
 (0, 0, False)
 """
 
-
-def analyze_sentence(text: str) -> tuple[int, int, bool]:
-    """Return (length, word count, contains 'python') for the given text."""
-    # TODO: implement function logic
-    raise NotImplementedError("analyze_sentence() is not implemented yet")
+def analyze_sentence(text):
+    chars = len(text)
+    words = len(text.split())
+    if "python" in text.lower():
+        has_python = True
+    else:
+        has_python = False
+    return chars, words, has_python
 
 
 if __name__ == "__main__":
-    # Keep all input() calls inside this block, otherwise the autograder
-    # cannot import your file.
-    # TODO: read sentence from input, call function, and print results
-    pass
+    sentence = input("Enter a sentence: ")
+    chars, words, has_python = analyze_sentence(sentence)
+    print("Characters:", chars)
+    print("Words:", words)
+    print("Contains 'Python':", has_python)
